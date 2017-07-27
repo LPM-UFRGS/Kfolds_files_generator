@@ -8,7 +8,7 @@ def chunks(l, n):
 file = raw_input("Enter dataset file name: ")
 print "you entered", file
 
-k = raw_input("Enter K: ")
+k = int(raw_input("Enter K: "))
 print "you entered", k
 
 '''file = 'teste.txt'
@@ -41,9 +41,6 @@ for i in range(len(folds)):
     test_groups.append(folds[i])
     validadtion_groups.append(valid)
 
-print len(lines)
-print validadtion_groups
-
 #writing the files
 for i in range(len(folds)):
     f = open(file+'_validation_'+str(i+1)+'.dat','w')
@@ -57,12 +54,12 @@ for i in range(len(folds)):
         else:
             t.write(lines[test_groups[i][l]-1])
     for m in range(len(validadtion_groups[i])):
-        print validadtion_groups[i][m], len(lines)
         if validadtion_groups[i][m]== len(lines):
-
             f.write(lines[validadtion_groups[i][m]-1]+'\n')
         else:
             f.write(lines[validadtion_groups[i][m]-1])
 
 f.close()
 t.close()
+
+print 'Got it! ;)'
